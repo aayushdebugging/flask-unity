@@ -36,7 +36,7 @@ project/
 1. **Clone the repository**:
 
     ```bash
-    git clone https://github.com/yourusername/Flask-CSharp-Integration.git
+    git clone https://github.com/aayushdebugging/Flask-CSharp-Integration.git
     cd Flask-CSharp-Integration/FlaskApp
     ```
 
