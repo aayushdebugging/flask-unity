@@ -3,7 +3,7 @@
 
 ## Project Description
 
-This project demonstrates how to create a simple integration between a Python Flask application and a C# console application. The Flask application continuously generates simulated data, including oxygen levels, pollutant levels, size, and color. The C# application fetches this data via an HTTP API, displays it in the console, and stores it locally in a JSON file.
+This project demonstrates how to create a simple integration between a Python Flask application and a C# console application. The Flask application continuously generates simulated data, including oxygen levels, pollutant levels, size, and color. Every 5 seconds, a new variable with a unique longitude and latitude is added. The C# application fetches this data via an HTTP API, displays it in the console, and stores it locally in a JSON file.
 
 ## Project Structure
 
@@ -103,7 +103,7 @@ project/
 
 2. **Run the C# application**:
 
-    Execute the C# application to fetch and display the data from the Flask API. The `size` and `color` values will be printed in the console and the data will be continuously updated in `../data.json`.
+    Execute the C# application to fetch and display the data from the Flask API. The variable names, longitude, latitude, size, and color values will be printed in the console, and the data will be continuously updated in `../data.json`.
 
 ### Flask Application Code (`app.py`)
 
@@ -111,36 +111,58 @@ project/
 from flask import Flask, jsonify
 import time
 import random
+import threading
 
 app = Flask(__name__)
 
+data = {}
+
 def generate_data():
     while True:
-        oxygen_level = random.randint(0, 100)
-        pollutant_level = random.randint(0, 100)
+        for key in list(data.keys()):
+            oxygen_level = random.randint(0, 100)
+            pollutant_level = random.randint(0, 100)
 
-        red = min(255, int(255 * (100 - oxygen_level) / 100))
-        green = min(255, int(255 * oxygen_level / 100))
-        blue = 0
-        color = f"rgb({red}, {green}, {blue})"
+            red = min(255, int(255 * (100 - oxygen_level) / 100))
+            green = min(255, int(255 * oxygen_level / 100))
+            blue = 0
+            color = f"rgb({red}, {green}, {blue})"
 
-        size = 0.1 + (pollutant_level / 100) * 0.9
+            size = 0.1 + (pollutant_level / 100) * 0.9
 
-        data = {
-            'oxygen_level': oxygen_level,
-            'pollutant_level': pollutant_level,
-            'size': size,
-            'color': color
-        }
-
-        yield jsonify(data)
+            data[key].update({
+                'oxygen_level': oxygen_level,
+                'pollutant_level': pollutant_level,
+                'size': size,
+                'color': color
+            })
+        
         time.sleep(1)
+
+def add_new_variable():
+    count = 1
+    while True:
+        longitude = random.uniform(-180, 180)
+        latitude = random.uniform(-90, 90)
+        key = f"variable_{count}"
+        data[key] = {
+            'longitude': longitude,
+            'latitude': latitude,
+            'oxygen_level': 0,
+            'pollutant_level': 0,
+            'size': 0,
+            'color': "rgb(0, 0, 0)"
+        }
+        count += 1
+        time.sleep(5)
 
 @app.route('/api/update', methods=['GET'])
 def update_data():
-    return next(generate_data())
+    return jsonify(data)
 
 if __name__ == "__main__":
+    threading.Thread(target=generate_data).start()
+    threading.Thread(target=add_new_variable).start()
     app.run(debug=True)
 ```
 
@@ -153,13 +175,16 @@ using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.IO;
+using Newtonsoft.Json.Linq;
 
 class Program
 {
     static async Task Main(string[] args)
     {
-        string apiUrl = "http://127.0.0.1:5000/api/update";  
-        string localDataFilePath = "../data.json"; // Path to data.json outside MyCSharpApp directory
+        string apiUrl = "http://127.0.0.1:5000/api/update";  // Replace with your Flask API endpoint
+        string localDataFilePath = "../data.json"; // Path to data
+
+.json outside MyCSharpApp directory
 
         using (var client = new HttpClient())
         {
@@ -174,13 +199,22 @@ class Program
                         var jsonString = await response.Content.ReadAsStringAsync();
                         var jsonData = JsonConvert.DeserializeObject<dynamic>(jsonString);
 
-                        double size = jsonData.size;
-                        string color = jsonData.color;
+                        foreach (var item in jsonData)
+                        {
+                            string key = item.Name;
+                            var value = item.Value;
 
-                        Console.WriteLine($"Size: {size}");
-                        Console.WriteLine($"Color: {color}");
+                            double longitude = value.longitude;
+                            double latitude = value.latitude;
+                            double size = value.size;
+                            string color = value.color;
 
-                        File.WriteAllText(localDataFilePath, jsonString);
+                            // Print variable name, longitude, latitude, size, and color values
+                            Console.WriteLine($"{key}: Longitude: {longitude}, Latitude: {latitude}, Size: {size}, Color: {color}");
+                        }
+
+                        // Write the data to data.json
+                        File.WriteAllText(localDataFilePath, jsonString.ToString());
                     }
                     else
                     {
@@ -192,7 +226,7 @@ class Program
                     Console.WriteLine($"Error: {ex.Message}");
                 }
 
-                Thread.Sleep(1000);  
+                Thread.Sleep(1000);  // Poll every second
             }
         }
     }
