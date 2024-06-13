@@ -15,3 +15,4 @@ D:\project\MyCSharpApp\obj\Debug\net8.0\ref\MyCSharpApp.dll
 D:\project\MyCSharpApp\bin\Debug\net8.0\Newtonsoft.Json.dll
 D:\project\MyCSharpApp\obj\Debug\net8.0\MyCSharpApp.csproj.AssemblyReference.cache
 D:\project\MyCSharpApp\obj\Debug\net8.0\MyCSharp.5D3FA773.Up2Date
+D:\project\MyCSharpApp\obj\Debug\net8.0\MyCSharpApp.sourcelink.json

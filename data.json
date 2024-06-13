@@ -1,1 +1,186 @@
-{"oxygen_level": 59, "pollutant_level": 13, "size": 0.21700000000000003, "color": "rgb(104, 150, 0)"}
+{
+  "variable_1": {
+    "color": "rgb(114, 140, 0)",
+    "latitude": -54.23276358818653,
+    "longitude": -43.154076481291526,
+    "oxygen_level": 55,
+    "pollutant_level": 37,
+    "size": 0.43300000000000005
+  },
+  "variable_10": {
+    "color": "rgb(33, 221, 0)",
+    "latitude": -46.83211108896876,
+    "longitude": -81.14372098320706,
+    "oxygen_level": 87,
+    "pollutant_level": 31,
+    "size": 0.379
+  },
+  "variable_11": {
+    "color": "rgb(73, 181, 0)",
+    "latitude": -44.760120086744976,
+    "longitude": 51.3047299452266,
+    "oxygen_level": 71,
+    "pollutant_level": 2,
+    "size": 0.11800000000000001
+  },
+  "variable_12": {
+    "color": "rgb(124, 130, 0)",
+    "latitude": -23.623509760553645,
+    "longitude": 148.05357607871258,
+    "oxygen_level": 51,
+    "pollutant_level": 7,
+    "size": 0.16300000000000003
+  },
+  "variable_13": {
+    "color": "rgb(76, 178, 0)",
+    "latitude": -59.57148028138877,
+    "longitude": 107.71014680152189,
+    "oxygen_level": 70,
+    "pollutant_level": 60,
+    "size": 0.64
+  },
+  "variable_14": {
+    "color": "rgb(196, 58, 0)",
+    "latitude": 9.709186015457178,
+    "longitude": -38.876349143571105,
+    "oxygen_level": 23,
+    "pollutant_level": 43,
+    "size": 0.487
+  },
+  "variable_15": {
+    "color": "rgb(249, 5, 0)",
+    "latitude": 89.6371309838772,
+    "longitude": 95.06097207759217,
+    "oxygen_level": 2,
+    "pollutant_level": 38,
+    "size": 0.44200000000000006
+  },
+  "variable_16": {
+    "color": "rgb(201, 53, 0)",
+    "latitude": 77.52626350143106,
+    "longitude": 31.658740255196903,
+    "oxygen_level": 21,
+    "pollutant_level": 25,
+    "size": 0.325
+  },
+  "variable_17": {
+    "color": "rgb(7, 247, 0)",
+    "latitude": -74.79499860759408,
+    "longitude": 16.61429474729985,
+    "oxygen_level": 97,
+    "pollutant_level": 68,
+    "size": 0.7120000000000001
+  },
+  "variable_18": {
+    "color": "rgb(61, 193, 0)",
+    "latitude": 35.43024286166232,
+    "longitude": 41.908507035768224,
+    "oxygen_level": 76,
+    "pollutant_level": 54,
+    "size": 0.5860000000000001
+  },
+  "variable_19": {
+    "color": "rgb(12, 242, 0)",
+    "latitude": -70.54947688455454,
+    "longitude": -96.77846268148708,
+    "oxygen_level": 95,
+    "pollutant_level": 28,
+    "size": 0.3520000000000001
+  },
+  "variable_2": {
+    "color": "rgb(170, 84, 0)",
+    "latitude": -1.6707540651329396,
+    "longitude": -64.8480402631308,
+    "oxygen_level": 33,
+    "pollutant_level": 100,
+    "size": 1.0
+  },
+  "variable_20": {
+    "color": "rgb(84, 170, 0)",
+    "latitude": 59.008486160669634,
+    "longitude": 35.43251358240951,
+    "oxygen_level": 67,
+    "pollutant_level": 73,
+    "size": 0.757
+  },
+  "variable_21": {
+    "color": "rgb(135, 119, 0)",
+    "latitude": 79.60746776009933,
+    "longitude": -63.25626942429122,
+    "oxygen_level": 47,
+    "pollutant_level": 21,
+    "size": 0.28900000000000003
+  },
+  "variable_22": {
+    "color": "rgb(183, 71, 0)",
+    "latitude": -60.79903478977203,
+    "longitude": -178.96644015715356,
+    "oxygen_level": 28,
+    "pollutant_level": 81,
+    "size": 0.8290000000000001
+  },
+  "variable_23": {
+    "color": "rgb(193, 61, 0)",
+    "latitude": 70.54737379709567,
+    "longitude": 150.32321170767483,
+    "oxygen_level": 24,
+    "pollutant_level": 69,
+    "size": 0.721
+  },
+  "variable_3": {
+    "color": "rgb(76, 178, 0)",
+    "latitude": 42.92226269046796,
+    "longitude": -124.11386116583019,
+    "oxygen_level": 70,
+    "pollutant_level": 16,
+    "size": 0.24400000000000002
+  },
+  "variable_4": {
+    "color": "rgb(132, 122, 0)",
+    "latitude": -51.98432821265467,
+    "longitude": -43.364565715482286,
+    "oxygen_level": 48,
+    "pollutant_level": 81,
+    "size": 0.8290000000000001
+  },
+  "variable_5": {
+    "color": "rgb(56, 198, 0)",
+    "latitude": 9.104912216048263,
+    "longitude": -102.73496420743155,
+    "oxygen_level": 78,
+    "pollutant_level": 98,
+    "size": 0.982
+  },
+  "variable_6": {
+    "color": "rgb(165, 89, 0)",
+    "latitude": 8.418815262246028,
+    "longitude": 80.7057913645067,
+    "oxygen_level": 35,
+    "pollutant_level": 89,
+    "size": 0.901
+  },
+  "variable_7": {
+    "color": "rgb(147, 107, 0)",
+    "latitude": -44.994766522705106,
+    "longitude": -59.49992488945169,
+    "oxygen_level": 42,
+    "pollutant_level": 2,
+    "size": 0.11800000000000001
+  },
+  "variable_8": {
+    "color": "rgb(33, 221, 0)",
+    "latitude": -8.162263314074295,
+    "longitude": 75.805341232176,
+    "oxygen_level": 87,
+    "pollutant_level": 57,
+    "size": 0.613
+  },
+  "variable_9": {
+    "color": "rgb(112, 142, 0)",
+    "latitude": 56.776184038893604,
+    "longitude": 164.9526222409578,
+    "oxygen_level": 56,
+    "pollutant_level": 71,
+    "size": 0.739
+  }
+}
