@@ -1,5 +1,4 @@
 
-
 # Flask-CSharp Integration Project
 
 ## Project Description
@@ -16,8 +15,9 @@ project/
 │   └── requirements.txt     # Python dependencies
 │
 ├── MyCSharpApp/             # Contains the C# console application code
-│   ├── Program.cs           # Main C# application file
-│   └── data.json            # Local storage for fetched data
+│   └── Program.cs           # Main C# application file
+│
+├── data.json                # Local storage for fetched data, located outside of MyCSharpApp
 │
 └── README.md                # Project README file
 ```
@@ -81,10 +81,10 @@ project/
 
 2. **Ensure the `data.json` file exists**:
 
-    Create a `data.json` file in the `MyCSharpApp` directory. This file will be used to store the fetched data from the Flask API.
+    Create a `data.json` file outside the `MyCSharpApp` directory. This file will be used to store the fetched data from the Flask API.
 
     ```bash
-    echo "{}" > data.json
+    echo "{}" > ../data.json
     ```
 
 3. **Build and run the C# application**:
@@ -93,7 +93,7 @@ project/
     dotnet run
     ```
 
-    The C# application will start fetching data from the Flask API, printing the values to the console, and storing the latest data in `data.json`.
+    The C# application will start fetching data from the Flask API, printing the values to the console, and storing the latest data in `../data.json`.
 
 ## Usage
 
@@ -103,7 +103,7 @@ project/
 
 2. **Run the C# application**:
 
-    Execute the C# application to fetch and display the data from the Flask API. The `size` and `color` values will be printed in the console and the data will be continuously updated in `data.json`.
+    Execute the C# application to fetch and display the data from the Flask API. The `size` and `color` values will be printed in the console and the data will be continuously updated in `../data.json`.
 
 ### Flask Application Code (`app.py`)
 
@@ -159,7 +159,7 @@ class Program
     static async Task Main(string[] args)
     {
         string apiUrl = "http://127.0.0.1:5000/api/update";  
-        string localDataFilePath = "D:\\project\\MyCSharpApp\\data.json"; 
+        string localDataFilePath = "../data.json"; // Path to data.json outside MyCSharpApp directory
 
         using (var client = new HttpClient())
         {
@@ -219,7 +219,3 @@ Feel free to fork this repository, make your changes, and submit a pull request.
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for more details.
-
----
-
-This README should provide a comprehensive guide to setting up and running your project. It covers the project structure, setup instructions for both the Flask and C# applications, and troubleshooting tips. Adjust the content as needed to fit your specific project details.
